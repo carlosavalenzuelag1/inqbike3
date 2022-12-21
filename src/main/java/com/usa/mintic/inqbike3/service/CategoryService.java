@@ -39,13 +39,19 @@ public class CategoryService {
         }
     }
 
-    public Category update(Category quadbike) {
-        if (quadbike.getId() != null) {
-            Optional<Category> qb = categoryRepository.getCategory(quadbike.getId());
+    public Category update(Category category) {
+        if (category.getId() != null) {
+            Optional<Category> qb = categoryRepository.getCategory(category.getId());
             if (qb.isPresent()) {
-                if (quadbike.getName() != null) {
-                    qb.get().setName(quadbike.getName());
+
+                if (category.getName() != null) {
+                    qb.get().setName(category.getName());
                 }
+
+                if (category.getDescription() != null) {
+                    qb.get().setDescription(category.getDescription());
+                }
+
 
                 categoryRepository.save(qb.get());
 
@@ -53,12 +59,12 @@ public class CategoryService {
 
 
             } else {
-                return quadbike;
+                return category;
             }
 
 
         } else {
-            return quadbike;
+            return category;
         }
     }
 

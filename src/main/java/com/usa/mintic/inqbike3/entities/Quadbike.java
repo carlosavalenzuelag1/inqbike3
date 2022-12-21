@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -17,12 +18,16 @@ public class Quadbike implements Serializable {
     private String name;
     private String brand;
     private Integer year;
-
+    private String description;
 
     @ManyToOne
-    @JoinColumn(name = "category")
+    @JoinColumn(name = "categoryId")
     @JsonIgnoreProperties("quadbikes")
+
+
+
     private Category category;
+
 
     public Integer getId() {
         return id;
@@ -56,6 +61,14 @@ public class Quadbike implements Serializable {
         this.year = year;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Category getCategory() {
         return category;
     }
@@ -63,4 +76,5 @@ public class Quadbike implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }

@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Repository
 public class QuadbikeRepository {
-
     @Autowired
     private QuadbikeCrudRepository quadbikeCrudRepository;
 
@@ -28,11 +27,9 @@ public class QuadbikeRepository {
 
         return quadbikeCrudRepository.save(quadbike);
     }
-
     public void delete(Quadbike quadbike){
 
         quadbikeCrudRepository.delete(quadbike);
     }
-
 
 }

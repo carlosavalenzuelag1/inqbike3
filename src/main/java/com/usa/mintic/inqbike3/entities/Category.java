@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name="category")
+@Table(name="tb_category")
 public class Category implements Serializable {
 
 
@@ -16,14 +16,12 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-
     private String description;
-
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
     @JsonIgnoreProperties("category")
-
     private List<Quadbike> quadbikes;
+
 
     public Integer getId() {
         return id;

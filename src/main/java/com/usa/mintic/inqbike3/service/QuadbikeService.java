@@ -73,7 +73,7 @@ public class QuadbikeService {
         boolean flag=false;
         Optional<Quadbike>p=quadbikeRepository.getQuadbike(id);
         if(p.isPresent()){
-            quadbikeRepository.delete(p.get());
+            quadbikeRepository.delete(p  .get());
             flag=true;
 
         }

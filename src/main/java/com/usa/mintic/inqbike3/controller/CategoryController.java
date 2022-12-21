@@ -1,17 +1,16 @@
-package com.usa.mintic.inqbike3.Controller;
+package com.usa.mintic.inqbike3.controller;
 
 
 import com.usa.mintic.inqbike3.entities.Category;
-import com.usa.mintic.inqbike3.entities.Quadbike;
 import com.usa.mintic.inqbike3.service.CategoryService;
-import com.usa.mintic.inqbike3.service.QuadbikeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/api/Category")
 public class CategoryController {
 
 
@@ -24,10 +23,12 @@ public class CategoryController {
     }
 
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Category save(@RequestBody Category p){
         return categoryService.save(p);
     }
-
 }
+
+
 
 
